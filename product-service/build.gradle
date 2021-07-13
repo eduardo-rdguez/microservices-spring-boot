@@ -8,6 +8,11 @@ group = 'com.eduardo.rdguez'
 version = '0.0.1'
 sourceCompatibility = '8'
 
+bootJar {
+	baseName = 'product-service'
+	archiveName = 'product-service.jar'
+}
+
 repositories {
 	mavenCentral()
 }
