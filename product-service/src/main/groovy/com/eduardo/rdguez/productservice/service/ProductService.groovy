@@ -10,4 +10,6 @@ interface ProductService {
 
   List<Product> getAllProducts()
 
+  Product sendToCart(Long productId)
+
 }

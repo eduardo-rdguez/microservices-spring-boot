@@ -34,4 +34,12 @@ class ProductController {
     productService.getAllProducts()
   }
 
+  @GetMapping("/sendToCard/{productId}")
+  ResponseEntity<Product> sendToCart(@PathVariable Long productId) {
+    Product product = productService.sendToCart(productId)
+    product
+      ? new ResponseEntity<>(product, HttpStatus.OK)
+      : new ResponseEntity<>(HttpStatus.NOT_FOUND)
+  }
+
 }
