@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+
+  product-service:
+    container_name: "product-service"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PATH_FOLDER=./product-service/build/libs
+    ports:
+      - 8045:8045
+    depends_on:
+      - activemq
+
+  activemq:
+    image: rmohr/activemq
+    container_name: "activemq"
+    ports:
+      - 61616:61616 # JMX
+      - 8161:8161 # Web Console
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=admin
+      - ACTIVEMQ_CONFIG_MINMEMORY=512
+      - ACTIVEMQ_CONFIG_MAXMEMORY=512
