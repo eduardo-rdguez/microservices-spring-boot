@@ -2,6 +2,16 @@ version: '3.9'
 
 services:
 
+  api-gateway:
+    container_name: "api-gateway"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PATH_FOLDER=./api-gateway/build/libs
+    ports:
+      - 8080:8080
+
   activemq:
     image: rmohr/activemq
     container_name: "activemq"
@@ -24,6 +34,7 @@ services:
     ports:
       - 8045:8045
     depends_on:
+      - api-gateway
       - activemq
 
   cart-service:
@@ -36,4 +47,5 @@ services:
     ports:
       - 8050:8050
     depends_on:
+      - api-gateway
       - activemq
