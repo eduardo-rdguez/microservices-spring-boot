@@ -2,6 +2,18 @@ version: '3.9'
 
 services:
 
+  activemq:
+    image: rmohr/activemq
+    container_name: "activemq"
+    ports:
+      - 61616:61616 # JMX
+      - 8161:8161 # Web Console
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=admin
+      - ACTIVEMQ_CONFIG_MINMEMORY=512
+      - ACTIVEMQ_CONFIG_MAXMEMORY=512
+
   product-service:
     container_name: "product-service"
     build:
@@ -14,14 +26,14 @@ services:
     depends_on:
       - activemq
 
-  activemq:
-    image: rmohr/activemq
-    container_name: "activemq"
+  cart-service:
+    container_name: "cart-service"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PATH_FOLDER=./cart-service/build/libs
     ports:
-      - 61616:61616 # JMX
-      - 8161:8161 # Web Console
-    environment:
-      - ACTIVEMQ_ADMIN_LOGIN=admin
-      - ACTIVEMQ_ADMIN_PASSWORD=admin
-      - ACTIVEMQ_CONFIG_MINMEMORY=512
-      - ACTIVEMQ_CONFIG_MAXMEMORY=512
+      - 8050:8050
+    depends_on:
+      - activemq
