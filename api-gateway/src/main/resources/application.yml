@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: http://product-service:8045
+          predicates:
+            - Path=/product/**
+        - id: cart-service
+          uri: http://cart-service:8050
+          predicates:
+            - Path=/cart/**
