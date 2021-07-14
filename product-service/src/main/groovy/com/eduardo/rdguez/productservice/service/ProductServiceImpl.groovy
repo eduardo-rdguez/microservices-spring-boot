@@ -18,7 +18,7 @@ class ProductServiceImpl implements ProductService {
   JmsTemplate jmsTemplate
 
   @Value('${application.jms.destination}')
-  private String jmsQueue
+  String jmsQueue
 
   @Override
   Product addProduct(Product product) {
