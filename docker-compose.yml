@@ -2,19 +2,6 @@ version: '3.9'
 
 services:
 
-  api-gateway:
-    container_name: "api-gateway"
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        - PATH_FOLDER=./api-gateway/build/libs
-    ports:
-      - 8080:8080
-    depends_on:
-      eureka-server:
-        condition: service_healthy
-
   eureka-server:
     container_name: "eureka-server"
     build:
@@ -30,6 +17,19 @@ services:
       timeout: 30s
       retries: 2
       start_period: 10s
+
+  api-gateway:
+    container_name: "api-gateway"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PATH_FOLDER=./api-gateway/build/libs
+    ports:
+      - 8080:8080
+    depends_on:
+      eureka-server:
+        condition: service_healthy
 
   activemq:
     image: rmohr/activemq
@@ -59,12 +59,12 @@ services:
     ports:
       - 8045:8045
     depends_on:
-      api-gateway:
-        condition: service_started
       eureka-server:
         condition: service_healthy
       activemq:
         condition: service_healthy
+      api-gateway:
+        condition: service_started
 
   cart-service:
     container_name: "cart-service"
@@ -76,9 +76,9 @@ services:
     ports:
       - 8050:8050
     depends_on:
-      api-gateway:
-        condition: service_started
       eureka-server:
         condition: service_healthy
       activemq:
         condition: service_healthy
+      api-gateway:
+        condition: service_started
