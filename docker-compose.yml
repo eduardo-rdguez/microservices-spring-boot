@@ -12,6 +12,16 @@ services:
     ports:
       - 8080:8080
 
+  eureka-server:
+    container_name: "eureka-server"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PATH_FOLDER=./eureka-server/build/libs
+    ports:
+      - 9000:9000
+
   activemq:
     image: rmohr/activemq
     container_name: "activemq"
@@ -35,6 +45,7 @@ services:
       - 8045:8045
     depends_on:
       - api-gateway
+      - eureka-server
       - activemq
 
   cart-service:
@@ -48,4 +59,5 @@ services:
       - 8050:8050
     depends_on:
       - api-gateway
+      - eureka-server
       - activemq
