@@ -11,6 +11,9 @@ services:
         - PATH_FOLDER=./api-gateway/build/libs
     ports:
       - 8080:8080
+    depends_on:
+      eureka-server:
+        condition: service_healthy
 
   eureka-server:
     container_name: "eureka-server"
@@ -21,6 +24,12 @@ services:
         - PATH_FOLDER=./eureka-server/build/libs
     ports:
       - 9000:9000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000"]
+      interval: 10s
+      timeout: 30s
+      retries: 2
+      start_period: 10s
 
   activemq:
     image: rmohr/activemq
@@ -33,6 +42,12 @@ services:
       - ACTIVEMQ_ADMIN_PASSWORD=admin
       - ACTIVEMQ_CONFIG_MINMEMORY=512
       - ACTIVEMQ_CONFIG_MAXMEMORY=512
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8161"]
+      interval: 10s
+      timeout: 30s
+      retries: 2
+      start_period: 10s
 
   product-service:
     container_name: "product-service"
@@ -44,9 +59,12 @@ services:
     ports:
       - 8045:8045
     depends_on:
-      - api-gateway
-      - eureka-server
-      - activemq
+      api-gateway:
+        condition: service_started
+      eureka-server:
+        condition: service_healthy
+      activemq:
+        condition: service_healthy
 
   cart-service:
     container_name: "cart-service"
@@ -58,6 +76,9 @@ services:
     ports:
       - 8050:8050
     depends_on:
-      - api-gateway
-      - eureka-server
-      - activemq
+      api-gateway:
+        condition: service_started
+      eureka-server:
+        condition: service_healthy
+      activemq:
+        condition: service_healthy
