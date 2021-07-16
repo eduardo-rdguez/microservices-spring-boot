@@ -15,3 +15,10 @@ spring:
           uri: http://cart-service:8050
           predicates:
             - Path=/cart/**
+
+eureka:
+  instance:
+    appname: ${spring.application.name}
+  client:
+    service-url:
+      defaultZone: http://eureka-server:9000/eureka
