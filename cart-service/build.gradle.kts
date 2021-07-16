@@ -14,7 +14,7 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 tasks.bootJar {
   archiveBaseName.set("cart-service")
-	archiveFileName.set("cart-service.jar")
+  archiveFileName.set("cart-service.jar")
 }
 
 repositories {
@@ -22,6 +22,7 @@ repositories {
 }
 
 dependencies {
+  implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.0.3")
   implementation("org.springframework.boot:spring-boot-starter-activemq")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("org.springframework.boot:spring-boot-starter-web")
