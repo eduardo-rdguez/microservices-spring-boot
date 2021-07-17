@@ -14,9 +14,9 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000"]
       interval: 10s
-      timeout: 30s
-      retries: 2
-      start_period: 10s
+      timeout: 2m
+      retries: 5
+      start_period: 1m
 
   api-gateway:
     container_name: "api-gateway"
@@ -45,9 +45,9 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8161"]
       interval: 10s
-      timeout: 30s
-      retries: 2
-      start_period: 10s
+      timeout: 2m
+      retries: 5
+      start_period: 1m
 
   product-service:
     container_name: "product-service"
