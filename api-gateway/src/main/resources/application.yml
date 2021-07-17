@@ -8,11 +8,11 @@ spring:
     gateway:
       routes:
         - id: product-service
-          uri: http://product-service:8045
+          uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/product/**
         - id: cart-service
-          uri: http://cart-service:8050
+          uri: lb://CART-SERVICE
           predicates:
             - Path=/cart/**
 
