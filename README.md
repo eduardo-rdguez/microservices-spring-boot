@@ -1,6 +1,6 @@
 # Welcome to microservices-spring-boot 🚀
 
-![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/eduardo-rdguez/microservices-spring-boot/blob/main/README.md)
 [![License: MIT](https://img.shields.io/github/license/eduardo-rdguez/microservices-spring-boot)](./LICENSE)
 [![Twitter: \_eduardguez](https://img.shields.io/twitter/follow/_eduardguez.svg?style=social)](https://twitter.com/_eduardguez)
