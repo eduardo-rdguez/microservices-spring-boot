@@ -55,10 +55,26 @@ gradle bootJar
 
 ## Docker Compose
 
-Start and run all the services:
+Start and run all the background services:
 
 ```sh
-docker-compose up --build
+docker-compose up -d --build
+```
+
+Stops running containers without removing them. They can be started again with `docker-compose start`:
+
+```sh
+docker-compose stop
+```
+
+Stops containers and removes containers, networks, volumes, and images created by `up`:
+
+```sh
+docker-compose down --rmi all -v
+```
+
+```sh
+docker-compose down --rmi local -v
 ```
 
 ## Author
