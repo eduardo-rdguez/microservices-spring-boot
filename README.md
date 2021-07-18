@@ -7,6 +7,8 @@
 
 > This project has been developed with Spring Boot, Spring Data JPA, Gradle, Groovy, Kotlin, Java, H2 Database, ActiveMQ, Gateway, Eureka Server and Docker Compose to demonstrate how to build microservices.
 
+![Application's Architecture](./assets/app-architecture.png)
+
 ## Tech Specs 🔖
 
 - Java `8`
