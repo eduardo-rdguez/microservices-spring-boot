@@ -5,11 +5,11 @@
 [![License: MIT](https://img.shields.io/github/license/eduardo-rdguez/microservices-spring-boot)](./LICENSE)
 [![Twitter: \_eduardguez](https://img.shields.io/twitter/follow/_eduardguez.svg?style=social)](https://twitter.com/_eduardguez)
 
-> This project has been developed with Spring Boot, Spring Data JPA, Gradle, Groovy, Kotlin, Java, H2 Database, ActiveMQ, Gateway, Eureka Server and Docker Compose to demonstrate how to build microservices.
+> This project has been developed to demonstrate how to build microservices with Spring Boot, Spring Data JPA, Gradle, Groovy, Kotlin, Java, H2 Database, ActiveMQ, Gateway, Eureka Server and Docker Compose.
 
 ![Application's Architecture](./assets/app-architecture.png)
 
-## Tech Specs 🔖
+## Tech specs 🔖
 
 - Java `8`
 - Gradle `7.1.1`
@@ -78,6 +78,11 @@ docker-compose down --rmi all -v
 ```sh
 docker-compose down --rmi local -v
 ```
+
+## Learn more
+
+* Docker command-line reference: https://docs.docker.com/compose/reference/
+* Microservices with Spring Boot: https://spring.io/microservices
 
 ## Author
 
