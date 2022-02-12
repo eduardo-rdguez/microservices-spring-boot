@@ -34,7 +34,7 @@ class ProductController {
     productService.getAllProducts()
   }
 
-  @GetMapping("/sendToCard/{productId}")
+  @PostMapping("/sendToCard/{productId}")
   ResponseEntity<Product> sendToCart(@PathVariable Long productId) {
     Product product = productService.sendToCart(productId)
     product
