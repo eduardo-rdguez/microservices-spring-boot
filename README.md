@@ -25,49 +25,21 @@
 
 ## Run
 
-Runs this project as a Spring Boot application:
-
-```sh
-gradle bootRun
-```
-
-## Build
-
-Assembles this project:
-
-```sh
-gradle build
-```
-
-## Tests
-
-Run tests this project:
-
-```sh
-gradle test
-```
-
-## JAR
-
-Assembles an executable jar archive:
-
-```sh
-gradle bootJar
-```
-
-## Docker Compose
-
 Start and run all the background services:
 
 ```sh
 docker-compose up -d --build
 ```
 
+## Stop
+
 Stops running containers without removing them. They can be started again with `docker-compose start`:
 
 ```sh
 docker-compose stop
 ```
+
+## Down
 
 Stops containers and removes containers, networks, volumes, and images created by `up`:
 
@@ -89,9 +61,3 @@ docker-compose down --rmi local -v
 * Website: https://eduardo-rdguez.github.io/
 * Twitter: [@\_eduardguez](https://twitter.com/\_eduardguez)
 * Github: [@eduardo-rdguez](https://github.com/eduardo-rdguez)
-
-## License
-
-Copyright © 2021 [Eduardo Rodríguez](https://github.com/eduardo-rdguez).
-
-This project is [MIT](https://github.com/eduardo-rdguez/microservices-spring-boot/blob/main/LICENSE) licensed.
