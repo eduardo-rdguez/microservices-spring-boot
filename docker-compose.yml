@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - PATH_FOLDER=./eureka-server/build/libs
+        - PATH_FOLDER=./eureka-server
     ports:
       - 9000:9000
     healthcheck:
@@ -24,12 +24,12 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - PATH_FOLDER=./api-gateway/build/libs
+        - PATH_FOLDER=./api-gateway
     ports:
       - 8080:8080
     depends_on:
       eureka-server:
-        condition: service_healthy
+        condition: service_started
 
   activemq:
     image: rmohr/activemq
@@ -55,14 +55,14 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - PATH_FOLDER=./product-service/build/libs
+        - PATH_FOLDER=./product-service
     ports:
       - 8045:8045
     depends_on:
       eureka-server:
-        condition: service_healthy
+        condition: service_started
       activemq:
-        condition: service_healthy
+        condition: service_started
       api-gateway:
         condition: service_started
 
@@ -72,13 +72,13 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - PATH_FOLDER=./cart-service/build/libs
+        - PATH_FOLDER=./cart-service
     ports:
       - 8050:8050
     depends_on:
       eureka-server:
-        condition: service_healthy
+        condition: service_started
       activemq:
-        condition: service_healthy
+        condition: service_started
       api-gateway:
         condition: service_started
