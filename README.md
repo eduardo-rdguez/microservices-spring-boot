@@ -9,7 +9,7 @@
 
 ![Application's Architecture](./assets/app-architecture.png)
 
-## Tech specs 🔖
+## Tech Specs 🔖
 
 - Java `8`
 - Gradle `7.1.1`
@@ -51,13 +51,17 @@ docker-compose down --rmi all -v
 docker-compose down --rmi local -v
 ```
 
+## Postman Collection
+
+<https://www.getpostman.com/collections/9975f6f098e55db72d2f>
+
 ## Learn more
 
-* Docker command-line reference: https://docs.docker.com/compose/reference/
-* Microservices with Spring Boot: https://spring.io/microservices
+- Docker command-line reference: <https://docs.docker.com/compose/reference/>
+- Microservices with Spring Boot: <https://spring.io/microservices>
 
 ## Author
 
-* Website: https://eduardo-rdguez.github.io/
-* Twitter: [@\_eduardguez](https://twitter.com/\_eduardguez)
-* Github: [@eduardo-rdguez](https://github.com/eduardo-rdguez)
+- Website: <https://eduardo-rdguez.github.io/>
+- Twitter: [@\_eduardguez](https://twitter.com/\_eduardguez)
+- Github: [@eduardo-rdguez](https://github.com/eduardo-rdguez)
