@@ -53,7 +53,7 @@ docker-compose down --rmi local -v
 
 ## Postman Collection
 
-<https://www.getpostman.com/collections/9975f6f098e55db72d2f>
+<https://www.getpostman.com/collections/c44a76b3abacbc43cbda>
 
 ## Learn more
 
