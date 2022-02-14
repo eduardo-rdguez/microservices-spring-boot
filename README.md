@@ -2,8 +2,6 @@
 
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/eduardo-rdguez/microservices-spring-boot/blob/main/README.md)
-[![License: MIT](https://img.shields.io/github/license/eduardo-rdguez/microservices-spring-boot)](./LICENSE)
-[![Twitter: \_eduardguez](https://img.shields.io/twitter/follow/_eduardguez.svg?style=social)](https://twitter.com/_eduardguez)
 
 > This project has been developed to demonstrate how to build microservices with Spring Boot, Spring Data JPA, Gradle, Groovy, Kotlin, Java, H2 Database, ActiveMQ, Gateway, Eureka Server and Docker Compose.
 
@@ -23,7 +21,7 @@
 - Eureka Client/Server `3.0.3`
 - Docker Compose `3.9`
 
-## Run
+## Up
 
 Start and run all the background services:
 
@@ -31,9 +29,17 @@ Start and run all the background services:
 docker-compose up -d --build
 ```
 
+## Start
+
+Starts existing containers for a service.
+
+```sh
+docker-compose start
+```
+
 ## Stop
 
-Stops running containers without removing them. They can be started again with `docker-compose start`:
+Stops running containers without removing them:
 
 ```sh
 docker-compose stop
